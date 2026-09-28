@@ -1,4 +1,4 @@
-# SmartForm + Angular
+# Angular contact form — Formspree alternative with AI spam filtering
 
 Contact form for an Angular 17 app, posting JSON to SmartForm AI.
 
