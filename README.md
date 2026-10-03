@@ -1,4 +1,4 @@
-# Angular contact form â€” Formspree alternative with AI spam filtering
+# Angular contact form â€?Formspree alternative with AI spam filtering
 
 Contact form for an Angular 17 app, posting JSON to SmartForm AI.
 
@@ -7,11 +7,11 @@ Contact form for an Angular 17 app, posting JSON to SmartForm AI.
 The endpoint accepts a standard HTML form POST or JSON via AJAX. Two
 kinds of fields:
 
-**Your form fields** â€” `name`, `email`, `message`, whatever you
+**Your form fields** â€?`name`, `email`, `message`, whatever you
 want. Every non-reserved field lands in your dashboard as a column in
 the submissions table.
 
-**Reserved fields** â€” names starting with `_` are interpreted by
+**Reserved fields** â€?names starting with `_` are interpreted by
 the API, not stored:
 
 | Field | Purpose |
@@ -22,7 +22,7 @@ the API, not stored:
 | ``_subject`` | Override the AI-generated email subject line. Max 200 chars; control characters stripped. |
 | `X-Gotcha` header | Same as `_gotcha` for JSON requests where you can't add a hidden form field. |
 
-Field names are Formspree-compatible â€” migrating from
+Field names are Formspree-compatible â€?migrating from
 `formspree.io/f/{form_id}` requires no renaming.
 
 ## Setup
@@ -30,10 +30,10 @@ Field names are Formspree-compatible â€” migrating from
 1. Get a form ID at https://usesmartform.com/dashboard.
 2. Clone, install, configure, run:
    ```bash
-   git clone https://github.com/yanghuai123456/smartform-example-angular.git
+   git clone https://github.com/smartformai/smartform-example-angular.git
    cd smartform-example-angular
    npm install
-   # edit src/environments/environment.ts â†’ smartformFormId
+   # edit src/environments/environment.ts â†?smartformFormId
    npm start
    ```
 3. Open http://localhost:4200, submit, check your dashboard.
@@ -69,7 +69,7 @@ export class ContactComponent {
 
   submit() {
     if (this.form.invalid) return;
-    this.status.set('Sendingâ€¦');
+    this.status.set('Sendingâ€?);
     this.http.post(`https://api.usesmartform.com/api/v1/f/${environment.smartformFormId}`, this.form.value, {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     }).subscribe({
@@ -82,7 +82,7 @@ export class ContactComponent {
 
 ## How the API works
 
-- `POST {endpoint}/api/v1/f/{form_id}` â€” JSON or form-data, no API key.
+- `POST {endpoint}/api/v1/f/{form_id}` â€?JSON or form-data, no API key.
 - Response: `{ success, message, submission_id, is_spam, intent, next_url }`.
 
 For the full contract, see https://usesmartform.com/docs.
@@ -101,7 +101,7 @@ npm run build         # static output in ./dist
 
 Yes. AI spam filtering is enabled by default on every plan. AI intent
 classification and high-value lead detection require a paid plan (Pro
-or Business) â€” the dashboard enforces this and returns HTTP 402 if
+or Business) â€?the dashboard enforces this and returns HTTP 402 if
 you try to enable them on a free workspace.
 
 ### Do I need an API key?
@@ -114,7 +114,7 @@ form ID, which is non-enumerable. The example also includes a hidden
 Yes. The example uses `FormBuilder` with a typed `FormGroup` and shows inline submission status from the API response.
 
 ## Related examples
-[Vite + React contact form](https://github.com/yanghuai123456/smartform-example-vite-react) | [Vite + Vue 3 contact form](https://github.com/yanghuai123456/smartform-example-vite-vue) | [Docusaurus contact form](https://github.com/yanghuai123456/smartform-example-docusaurus)
+[Vite + React contact form](https://github.com/smartformai/smartform-example-vite-react) | [Vite + Vue 3 contact form](https://github.com/smartformai/smartform-example-vite-vue) | [Docusaurus contact form](https://github.com/smartformai/smartform-example-docusaurus)
 
 
 ## License
